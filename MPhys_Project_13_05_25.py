@@ -550,8 +550,8 @@ def print_grouped_bond_tensors(atom_index, overall_data):
 
 # Main section
 
-# lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(r"C:\Users\georg\OneDrive - University of Leeds\MPhys Project\Code\Materials\MnF2.cif")
-lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(r"C:\Users\georg\OneDrive - University of Leeds\MPhys Project\Code\Materials\Y3Fe5O12_symmetrised.cif")
+# lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(r"C:example_file.cif")
+lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(r"C:example_file.cif")
 
 # Example Diamond lattice (Lax)
 # lattice_vectors = np.array([[1,0,0],
@@ -583,5 +583,6 @@ overall_data = process_atoms(lattice_vectors, atomic_fractional_coords, atomic_n
 i = 62
 print(f"Specialized bond tensors for bonds connected to atom {i}:")
 print_grouped_bond_tensors(i, overall_data)
+
 
 # Note: The bond which 'connects the atom to itself' and which has zero magnitude is also given (i.e. the self interaction tensor, I don't think this has any physical meaning)
