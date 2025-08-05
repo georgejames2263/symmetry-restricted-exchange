@@ -40,11 +40,11 @@ pip install numpy sympy spglib pymatgen
 
 ### Input
 
-Suppose you want to analyze the crystal structure in `Materials/Y3Fe5O12_symmetrised.cif` and examine the exchange tensors associated with atom 62 (the 63rd atom in the structure). Modify the bottom of the script like this:
+Suppose you want to analyze the crystal structure in `Materials/Mn5Ge3.cif` and examine the exchange tensors associated with atom 0 (the 1st atom in the .cif file). Modify the bottom of the script like this:
 
 ```python
 file_path = "Materials/Mn5Ge3.cif"
-atom_index = 62
+atom_index = 0
 
 lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(file_path)
 overall_data = process_atoms(lattice_vectors, atomic_fractional_coords, atomic_numbers, lattice_size=0)
