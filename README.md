@@ -164,6 +164,11 @@ Bond magnitude (Cartesian): 3.0105
 
 ### 💬 Output Explanation
 
-Each block of output corresponds to a group of bonds connected to the selected atom. Bonds are grouped first by their **length (magnitude)** and then by **symmetry equivalence** under the site's local point group. For each symmetry-equivalent bond, the output includes the atomic number and coordinates of the bonded atom, as well as the **specialized exchange tensor** that describes allowed magnetic interactions along that bond. The tensor is expressed symbolically using SymPy, and its structure reflects the constraints imposed by the bond’s symmetry. For example, diagonal-only tensors indicate isotropic exchange, while off-diagonal terms may correspond to anisotropic or antisymmetric (e.g. DMI-like) interactions.
+Each block of output corresponds to a group of bonds connected to the selected atom. Bonds are grouped first by their **length (magnitude)** and then by **symmetry equivalence** under the site's local point group. For each symmetry-equivalent bond, the output includes the atomic number and coordinates of the bonded atom, as well as the **specialized exchange tensor** that describes allowed magnetic interactions along that bond.
+
+The tensor is expressed symbolically using SymPy, and its structure reflects the constraints imposed by the bond’s symmetry. For example, diagonal-only tensors indicate isotropic exchange, while off-diagonal terms may correspond to anisotropic or antisymmetric (e.g. DMI-like) interactions.
+
+⚠️ **Note:** The bond group with magnitude `0.0000` represents a self-bond (i.e. the atom bonded to itself) and does **not** have physical meaning in this context — it appears due to how the code includes all nearby lattice points, including the origin.
+
 
 
