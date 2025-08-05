@@ -47,7 +47,7 @@ file_path = "Materials/Mn5Ge3.cif"
 atom_index = 0
 
 lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(file_path)
-overall_data = process_atoms(lattice_vectors, atomic_fractional_coords, atomic_numbers, lattice_size=0)
+overall_data = process_atoms(lattice_vectors, atomic_fractional_coords, atomic_numbers, lattice_size=1)
 
 print(f"Specialized bond tensors for bonds connected to atom {atom_index}:")
 print_grouped_bond_tensors(atom_index, overall_data)
