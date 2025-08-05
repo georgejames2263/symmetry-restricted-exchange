@@ -548,41 +548,28 @@ def print_grouped_bond_tensors(atom_index, overall_data):
                 print("    ---")
 
 
-# Main section
 
-# lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(r"C:example_file.cif")
-lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(r"C:example_file.cif")
 
-# Example Diamond lattice (Lax)
-# lattice_vectors = np.array([[1,0,0],
-#                             [0,1,0],
-#                             [0,0,1]])
+# === Main section ===
 
-# atomic_numbers = (1,1,1,1,1,1,1,1)
+# Choose which CIF file to analyze:
+# Uncomment one of the lines below to switch materials:
+# file_path = "Materials/MnF2.cif"
+file_path = "Materials/Y3Fe5O12_symmetrised.cif"
 
-# atomic_fractional_coords = np.array([[0,0,0],
-#                                      [0.5,0.5,0],
-#                                      [0.5,0,0.5],
-#                                      [0,0.5,0.5],
-#                                      [0.25,0.25,0.25],
-#                                      [0.75,0.75,0.25],
-#                                      [0.75,0.25,0.75],
-#                                      [0.25,0.75,0.75]])
+# Load CIF data
+lattice_vectors, atomic_fractional_coords, atomic_numbers = extract_cif_data(file_path)
 
-# lattice_vectors = np.array([[1,0,0],
-#                             [0,1,0],
-#                             [0,0,1]])
-
-# atomic_numbers = (1,1)
-
-# atomic_fractional_coords = np.array([[0,0,0],
-#                                      [0.5,0.5,0.5]])
-
+# Run the symmetry analysis
 overall_data = process_atoms(lattice_vectors, atomic_fractional_coords, atomic_numbers, lattice_size=0)
 
-i = 62
-print(f"Specialized bond tensors for bonds connected to atom {i}:")
-print_grouped_bond_tensors(i, overall_data)
+# Choose which atom to analyze (index from 0 to N-1)
+atom_index = 62
+
+# Print results
+print(f"\nSpecialized bond tensors for bonds connected to atom {atom_index}:")
+print_grouped_bond_tensors(atom_index, overall_data)
 
 
 # Note: The bond which 'connects the atom to itself' and which has zero magnitude is also given (i.e. the self interaction tensor, I don't think this has any physical meaning)
+
